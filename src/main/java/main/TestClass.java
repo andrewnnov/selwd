@@ -21,23 +21,32 @@ public class TestClass {
         //управление размером экрана
         //driver.manage().window().maximize();
 
-        WebElement link = driver.findElement(By.linkText("Log in"));
+       WebElement buttonSearch = driver.findElement(By.xpath("//input[@id='searchButton']"));
+       buttonSearch.click();
 
-        WebElement link2 = driver.findElement(By.partialLinkText("Random"));
+       driver.get("https://github.com/");
+       //driver.findElement(By.xpath("")).click();
 
-        WebElement searchField = driver.findElement(By.name("search"));
+       WebElement button = driver.findElement(By.xpath("//form[@class='home-hero-signup text-gray-dark js-signup-form js-signup-form-submit']//button"));
+       if(button.getText().equals("Sign up for GitHub")) {
+           System.out.println("Success!!!");
+           //button.submit();
+       } else {
+           System.out.println("Fail!!!");
+       }
 
-        WebElement searchButton = driver.findElement(By.className("searchButton"));
+        driver.get("https://github.com/");
 
-        WebElement id = driver.findElement(By.id("ca-viewsource"));
 
-        WebElement tagNameInput = driver.findElement(By.tagName("input"));
+       WebElement button2 = driver.findElement(By.xpath("//div/a[@class='HeaderMenu-link no-underline mr-3']"));
+       button2.click();
 
-        WebElement element = driver.findElement(By.cssSelector("#searchInput"));
 
-        WebElement xpassElement = driver.findElement(By.xpath("//div[@id='p-logo']"));
 
-        driver.quit();
+
+       //button.submit();
+
+        //driver.quit();
 
 
     }
