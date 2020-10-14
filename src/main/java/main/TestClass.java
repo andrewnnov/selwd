@@ -19,27 +19,31 @@ public class TestClass {
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://en.wikipedia.org/");
         //управление размером экрана
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
-       WebElement buttonSearch = driver.findElement(By.xpath("//input[@id='searchButton']"));
-       buttonSearch.click();
-
-       driver.get("https://github.com/");
-       //driver.findElement(By.xpath("")).click();
-
-       WebElement button = driver.findElement(By.xpath("//form[@class='home-hero-signup text-gray-dark js-signup-form js-signup-form-submit']//button"));
-       if(button.getText().equals("Sign up for GitHub")) {
-           System.out.println("Success!!!");
-           //button.submit();
-       } else {
-           System.out.println("Fail!!!");
-       }
+//        driver.findElement(By.xpath("//input[@id='searchInput']")).sendKeys("Selenium WebDriver");
+//        driver.findElement(By.xpath("//input[@id='searchButton']")).click();
+//        //get text field
+//        System.out.println(driver.findElement(By.xpath("//div[@id='searchText']/input")).getAttribute("value"));
+//        driver.findElement(By.xpath("//div[@id='searchText']/input")).clear();
 
         driver.get("https://github.com/");
+        driver.findElement(By.xpath("//input[@id='user[login]']")).clear();
+        driver.findElement(By.xpath("//input[@id='user[login]']")).sendKeys("NewUser111111111111");
+
+        driver.findElement(By.xpath("//input[@id='user[password]']")).clear();
+        driver.findElement(By.xpath("//input[@id='user[password]']")).sendKeys("Testpass111@");
+
+        driver.findElement(By.xpath("//form[@class='home-hero-signup text-gray-dark js-signup-form js-signup-form-submit']//button")).click();
 
 
-       WebElement button2 = driver.findElement(By.xpath("//div/a[@class='HeaderMenu-link no-underline mr-3']"));
-       button2.click();
+        driver.get("https://www.instagram.com/");
+        driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Вася");
+        driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Assddee123@");
+
+        System.out.println(driver.findElement(By.xpath("//input[@name='password']")).getAttribute("value"));
+
+        driver.findElement(By.xpath("//form[@class='HmktE']//button")).submit();
 
 
 
