@@ -1,9 +1,13 @@
 package main;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.concurrent.TimeUnit;
 
 public class TestClass {
 
@@ -11,23 +15,30 @@ public class TestClass {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\selwd\\driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.get("https://www.yandex.ru");
-
+        //неявное ожидание
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get("https://en.wikipedia.org/");
         //управление размером экрана
         //driver.manage().window().maximize();
 
-        //определенный размер окна
-        driver.manage().window().setSize(new Dimension(900, 600));
+        WebElement link = driver.findElement(By.linkText("Log in"));
 
-        driver.navigate().to("https://www.google.com");
-        driver.navigate().back();
-        driver.navigate().forward();
-        driver.navigate().refresh();
+        WebElement link2 = driver.findElement(By.partialLinkText("Random"));
 
-        System.out.println(driver.getTitle());
+        WebElement searchField = driver.findElement(By.name("search"));
 
-        System.out.println(driver.getCurrentUrl());
+        WebElement searchButton = driver.findElement(By.className("searchButton"));
+
+        WebElement id = driver.findElement(By.id("ca-viewsource"));
+
+        WebElement tagNameInput = driver.findElement(By.tagName("input"));
+
+        WebElement element = driver.findElement(By.cssSelector("#searchInput"));
+
+        WebElement xpassElement = driver.findElement(By.xpath("//div[@id='p-logo']"));
 
         driver.quit();
+
+
     }
 }
