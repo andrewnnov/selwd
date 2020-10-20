@@ -25,32 +25,12 @@ public class HuaweiTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("https://en.wikipedia.org/wiki/Main_Page");
-
-        WebElement searchInput = driver.findElement(By.xpath("//input[@id='searchInput']"));
-        //searchInput.sendKeys("text");
-        String select = Keys.chord(Keys.CONTROL, "a");
-        String cut = Keys.chord(Keys.CONTROL, "x");
-        String paste = Keys.chord(Keys.CONTROL, "v");
+        driver.get("https://www.google.com/imghp?hl=EN");
+        driver.findElement(By.xpath("//div[@aria-label = 'Search by image']")).click();
+        driver.findElement(By.xpath("//a[text()= 'Upload an image']")).click();
+        driver.findElement(By.xpath("//input[@type= 'file']")).sendKeys("C:\\Projects\\selwd\\screenshots\\07_36_38.png");
 
 
-        searchInput.sendKeys("test text");
-        searchInput.sendKeys(select);
-        searchInput.sendKeys(cut);
-        searchInput.sendKeys(paste);
-        searchInput.sendKeys(Keys.ENTER);
-
-        Date dateNow = new Date();
-        SimpleDateFormat format = new SimpleDateFormat("hh_mm_ss");
-        String fileName = format.format(dateNow) + ".png";
-
-        File screenShot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-
-        try {
-            FileUtils.copyFile(screenShot, new File("C:\\Projects\\selwd\\screenshots\\" + fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
 //        searchInput.sendKeys(Keys.chord(Keys.LEFT_SHIFT, "test with shift"));
@@ -58,7 +38,7 @@ public class HuaweiTest {
 
 
 
-        driver.quit();
+        //driver.quit();
 
 
 
