@@ -8,7 +8,14 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import org.apache.commons.io.FileUtils;
+
+
 
 public class HuaweiTest {
 
@@ -33,9 +40,25 @@ public class HuaweiTest {
         searchInput.sendKeys(paste);
         searchInput.sendKeys(Keys.ENTER);
 
+        Date dateNow = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("hh_mm_ss");
+        String fileName = format.format(dateNow) + ".png";
+
+        File screenShot = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+
+        try {
+            FileUtils.copyFile(screenShot, new File("C:\\Projects\\selwd\\screenshots\\" + fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
 //        searchInput.sendKeys(Keys.chord(Keys.LEFT_SHIFT, "test with shift"));
 //        searchInput.sendKeys(Keys.ENTER);
 
+
+
+        driver.quit();
 
 
 
