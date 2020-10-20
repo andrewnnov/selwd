@@ -2,7 +2,10 @@ package main;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,25 +17,20 @@ public class HuaweiTest {
     public static void main(String[] args) {
         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\selwd\\driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
 
-        driver.get("https://support.microsoft.com/ru-ru");
+        driver.get("https://www.labirint.ru/");
+        WebElement link = driver.findElement(By.xpath("//a[text()='Книги']"));
+        WebElement element = driver.findElement(By.xpath("//a[text()='Книги']"));
+        Actions actions = new Actions(driver);
+        actions.moveToElement(link).build().perform();
 
-        WebDriverWait wait = (new WebDriverWait(driver, 5));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[contains(text(), \"Добро пожаловать в службу поддержки Майкрософт!\")]")));
+        actions.dragAndDrop(element, link).build().perform();
 
-        driver.findElement(By.xpath("//a[@class='ocpExternalLink supHomeAndLandingPageCTA' and text()='ПРОСМОТРЕТЬ ВАРИАНТЫ ОБУЧЕНИЯ']")).click();
+        actions.clickAndHold(element).moveToElement(link).release().build().perform();
 
-        for(String tab: driver.getWindowHandles()) {
-            driver.switchTo().window(tab);
-            //System.out.println(tab.toString());
-
-        }
-
-        //driver.findElement(By.xpath("//a[@class='ocpExternalLink supHomeAndLandingPageCTA' and text()='ВЫБОР ШАБЛОНА']")).click();
-        driver.findElement(By.xpath("//a[text()='Получить советы']")).click();
-        //driver.findElement(By.xpath("//a[text()='Все вопросы и ответы']")).click();
+        Action action = 
 
 
 
