@@ -1,8 +1,6 @@
 package main;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
@@ -21,16 +19,24 @@ public class HuaweiTest {
         driver.manage().window().maximize();
 
         driver.get("https://www.labirint.ru/");
-        WebElement link = driver.findElement(By.xpath("//a[text()='Книги']"));
-        WebElement element = driver.findElement(By.xpath("//a[text()='Книги']"));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(link).build().perform();
 
-        actions.dragAndDrop(element, link).build().perform();
+        JavascriptExecutor jse = (JavascriptExecutor)driver;
+        //jse.executeScript("alert('Hello');");
 
-        actions.clickAndHold(element).moveToElement(link).release().build().perform();
+        jse.executeScript("window.scrollBy(0, 10000)", "");
+        jse.executeScript("window.scrollBy(0, -10000)", "");
 
-        Action action = 
+//        driver.get("https://www.labirint.ru/");
+//        WebElement link = driver.findElement(By.xpath("//a[text()='Книги']"));
+//        WebElement element = driver.findElement(By.xpath("//a[text()='Книги']"));
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(link).build().perform();
+//
+//        actions.dragAndDrop(element, link).build().perform();
+//
+//        actions.clickAndHold(element).moveToElement(link).release().build().perform();
+
+
 
 
 
