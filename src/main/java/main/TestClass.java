@@ -25,12 +25,21 @@ public class TestClass {
         driver.manage().window().maximize();
 
 
-        driver.get("https://www.ozon.ru/category/odezhda-obuv-i-aksessuary-7500/?from_global=true&text=%D0%BA%D1%80%D0%BE%D1%81%D1%81%D0%BE%D0%B2%D0%BA%D0%B8+%D0%BC%D1%83%D0%B6%D1%81%D0%BA%D0%B8%D0%B5");
+        driver.get("https://www.w3schools.com/sql/sql_select.asp");
+        WebElement tableElement = driver.findElement(By.xpath("//table[@class='w3-table-all notranslate']"));
 
-        List<WebElement> arrayCheckBox = driver.findElements(By.xpath("//div[@class='cy7']/a[@class='c0y6 c0z']"));
-        for (WebElement webElement : arrayCheckBox) {
-            webElement.click();
+       Table table = new Table(tableElement, driver);
+
+
+
+        System.out.println(table.getRows().size());
+
+        System.out.println(table.getHeadings().size());
+
+        for(WebElement el: table.getHeadings()) {
+            System.out.println(el.getText());
         }
+
 
 
 
