@@ -8,6 +8,7 @@ public class SignUpPage {
     WebDriver driver;
 
     private By heading = By.xpath("//div[@class='mb-4 mb-md-8 container-md']//h1");
+    ////div[@class='text-mono text-center text-gray-light text-normal mb-3']/following-sibling::h1
     private By userNameSignUpPage = By.xpath("//input[@name='user[login]']");
     private By userEmailSignUpPage = By.xpath("//input[@name='user[email]']");
     private By userPasswordSignUpPage = By.xpath("//input[@name='user[password]']");
@@ -48,7 +49,7 @@ public class SignUpPage {
     }
 
     public String getHeadingText() {
-        return driver.findElement(headingError).getText();
+        return driver.findElement(heading).getText();
     }
 
     public String getErrorUserName() {
