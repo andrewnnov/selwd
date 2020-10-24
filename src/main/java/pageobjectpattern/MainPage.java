@@ -30,7 +30,7 @@ public class MainPage {
     }
 
     private SignUpPage clickSignUpForGitHubButton() {
-        driver.findElement(signUpForGitHubButton);
+        driver.findElement(signUpForGitHubButton).click();
         return new SignUpPage(driver);
     }
 
@@ -49,7 +49,7 @@ public class MainPage {
         return this;
     }
 
-    private SignUpPage registration(String userName, String email, String pass) {
+    public SignUpPage registration(String userName, String email, String pass) {
         this.typeUserName(userName);
         this.typeEmail(email);
         this.typePassword(pass);
