@@ -29,7 +29,7 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage loginWithInvalodCreds(String userName, String password) {
+    public LoginPage loginWithInvalidCreds(String userName, String password) {
         this.typeUserName(userName);
         this.typePassword(password);
         driver.findElement(signInButton).click();
@@ -37,15 +37,15 @@ public class LoginPage {
         return new LoginPage(driver);
     }
 
-    private String getHeadingText() {
+    public String getHeadingText() {
         return driver.findElement(heading).getText();
     }
 
-    private String getErrorMessage() {
+    public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
     }
 
-    private SignUpPage createAccount() {
+    public SignUpPage createAccount() {
         driver.findElement(linkCreateAnAccount).click();
         return new SignUpPage(driver);
     }
