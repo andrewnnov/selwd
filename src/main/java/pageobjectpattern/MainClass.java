@@ -2,6 +2,7 @@ package pageobjectpattern;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +20,10 @@ public class MainClass {
         driver.get("https://github.com/");
 
 
-        MainPage mainPage = new MainPage(driver);
-        mainPage.registration("!!!!!", "Affff", "Sfdfdfdsfd3345666@");
+        //MainPage mainPage = new MainPage(driver);
+
+        MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
+        mainPage.registration("test", "testusername4567@test.com", "Sfdfdfdsfd3345666@");
 
     }
 }
