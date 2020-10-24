@@ -33,7 +33,7 @@ public class MainPageTest {
     @Test
     public void registrationFailedTest() {
         SignUpPage signUpPage = mainPage.registration("test", "aser@test.com", "AerrtyFr3453@");
-        String mainError = signUpPage.getHeadingText();
+        String mainError = signUpPage.getHeadingErrorText();
         Assert.assertEquals("There were problems creating your account.", mainError);
 
     }

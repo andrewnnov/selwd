@@ -52,6 +52,10 @@ public class SignUpPage {
         return driver.findElement(heading).getText();
     }
 
+    public String getHeadingErrorText() {
+        return driver.findElement(headingError).getText();
+    }
+
     public String getErrorUserName() {
         return driver.findElement(errorUserName).getText();
     }
