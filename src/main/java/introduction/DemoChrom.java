@@ -11,6 +11,19 @@ public class DemoChrom {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.ru/");
         System.out.println(driver.getTitle());
+
+        System.out.println(driver.getCurrentUrl()); //validate correct url
+        System.out.println(driver.getPageSource());
+
+        driver.get("https://www.yahoo.com/");
+        driver.navigate().back();
+        driver.navigate().forward();
+        driver.close(); //it closes current browser
+        //driver.quit(); //it closes all the browsers opened by selenium script
+
+
+
+
     }
 
 
