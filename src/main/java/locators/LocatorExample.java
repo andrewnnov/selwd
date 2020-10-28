@@ -10,7 +10,8 @@ public class LocatorExample {
         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\selwd\\driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.facebook.com/");
-        driver.findElement(By.id("email")).sendKeys("test@test.com");
+        //driver.findElement(By.id("email")).sendKeys("test@test.com");
+        driver.findElement(By.cssSelector("#email")).sendKeys("emailAddress");
         driver.findElement(By.name("pass")).sendKeys("123456");
         driver.findElement(By.linkText("Забыли пароль?")).click();
         //driver.close();
