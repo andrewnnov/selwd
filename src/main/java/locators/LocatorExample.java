@@ -18,7 +18,12 @@ public class LocatorExample {
         driver.get("https://login.salesforce.com/");
         driver.findElement(By.id("username")).sendKeys("Hello");
         driver.findElement(By.name("pw")).sendKeys("123456");
-        driver.findElement(By.id("Login")).click();
+        //driver.findElement(By.id("Login")).click();
+
+        driver.findElement(By.xpath("//input[@id='Login']")).click();
+
+
+
 
 
 
