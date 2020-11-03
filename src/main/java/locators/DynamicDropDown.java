@@ -21,7 +21,12 @@ public class DynamicDropDown {
         driver.findElement(By.xpath("//a[@value='BLR']")).click();
 
        // driver.findElement(By.id("ctl00_mainContent_ddl_destinationStation1_CTXT")).click();
-        driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();
+        //driver.findElement(By.xpath("(//a[@value='MAA'])[2]")).click();  // very bad
+
+
+        driver.findElement(By.xpath("//div[@id='ctl00_mainContent_ddl_originStation1_CTNR']//a[@value='MAA']")).click();  // very bad
+
+
 
 
     }
