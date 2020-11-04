@@ -22,28 +22,18 @@ public class CheckBoxClass {
 
         driver.findElement(By.cssSelector("input[id*='friendsandfamily']")).click(); //css selector
         //System.out.println();
-
         Assert.assertTrue(driver.findElement(By.xpath("//input[contains(@id, 'friendsandfamily')]")).isSelected());
-
         driver.findElement(By.xpath("//input[contains(@id, 'friendsandfamily')]")).click(); //xpass selector
         //System.out.println();
         Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='friendsandfamily']")).isSelected());
-
         //count of number chechboxes
         List<WebElement> listOfCheckBoxes = driver.findElements(By.xpath("//input[@type='checkbox']"));
-
         Assert.assertEquals(listOfCheckBoxes.size(), 6);
-
         System.out.println(listOfCheckBoxes.size());
 
-//        for (WebElement elCheckBox: listOfCheckBoxes) {
-//            elCheckBox.click();
-//        }
 
-//        for (int i = 1; i < listOfCheckBoxes.size(); i++) {
-//            listOfCheckBoxes.get(i).click();
-//
-//        }
+
+
 
     }
 }

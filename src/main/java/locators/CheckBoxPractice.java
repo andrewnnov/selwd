@@ -20,9 +20,13 @@ public class CheckBoxPractice {
         Assert.assertFalse(driver.findElement(By.xpath("//input[@id='checkBoxOption1']")).isSelected());
         driver.findElement(By.xpath("//input[@id='checkBoxOption1']")).click();
         Assert.assertTrue(driver.findElement(By.xpath("//input[@id='checkBoxOption1']")).isSelected());
+        driver.findElement(By.xpath("//input[@id='checkBoxOption1']")).click();
+        Assert.assertFalse(driver.findElement(By.xpath("//input[@id='checkBoxOption1']")).isSelected());
 
         System.out.println(driver.findElements(By.xpath("//input[@type='checkbox']")).size());
     }
+
+
 
 
 }
