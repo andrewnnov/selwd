@@ -4,17 +4,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class WaiterImpAndExp {
 
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\selwd\\driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        WebDriverWait ww = new WebDriverWait(driver, 5); //-explicit wait
         driver.manage().window().maximize();
 
         String [] arrayOfVegetAndFruit = {"Brocolli", "Cauliflower", "Beetroot", "Cucumber"};
@@ -23,10 +25,13 @@ public class WaiterImpAndExp {
 
         driver.findElement(By.xpath("//img[@alt='Cart']")).click();
         driver.findElement(By.xpath("//div[@class='cart-preview active']//button[text()='PROCEED TO CHECKOUT']")).click();
+        ww.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@class='promoCode']"))); //-explicit wait
         driver.findElement(By.xpath("//input[@class='promoCode']")).sendKeys("rahulshettyacademy");
         driver.findElement(By.xpath("//button[@class='promoBtn']")).click();
-        String alarmInfo = driver.findElement(By.xpath("//span[@class='promoInfo']")).getText();
-        System.out.println(alarmInfo);
+        //explicit wait
+
+        ww.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='promoInfo']"))); //-explicit wait
+        System.out.println(driver.findElement(By.xpath("//span[@class='promoInfo']")).getText());
 
 
     }
