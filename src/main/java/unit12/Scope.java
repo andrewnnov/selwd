@@ -6,11 +6,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class Scope {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "C:\\Projects\\selwd\\driver\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -33,19 +35,18 @@ public class Scope {
 
 
         //click on each link the column and check if page are opening
-        for(int i = 0; i < columnDriver.findElements(By.tagName("a")).size(); i++ ) {
+        for(int i = 1; i < columnDriver.findElements(By.tagName("a")).size(); i++ ) {
 
             String clickOnLink = Keys.chord(Keys.CONTROL, Keys.ENTER);
             columnDriver.findElements(By.tagName("a")).get(i).sendKeys(clickOnLink);
+            }
 
+        Set<String> titlesPage =  driver.getWindowHandles();
+        Iterator<String> it = titlesPage.iterator();
+        while (it.hasNext()) {
+            driver.switchTo().window(it.next());
+            System.out.println(driver.getTitle());
         }
-
-
-
-
-
-
-
 
     }
 }
