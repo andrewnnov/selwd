@@ -16,8 +16,9 @@ public class AutoSuggestive {
         driver.get("https://www.ksrtc.in");
 
         WebElement fromPlace = driver.findElement(By.id("fromPlaceName"));
-        fromPlace.sendKeys("BEN");
-        fromPlace.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+        fromPlace.sendKeys("BENG");
+        fromPlace.sendKeys(Keys.ARROW_DOWN);
+        //fromPlace.sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
 
 
         //it doesn't work need JS executor
@@ -30,6 +31,28 @@ public class AutoSuggestive {
         String script = "return document.getElementById(\"fromPlaceName\").value;";
         String textFromField = (String)js.executeScript(script);
         System.out.println(textFromField);
+        int i = 0;
+
+        //BENGALURU INTERNATION AIRPORT
+        while (!textFromField.equalsIgnoreCase("BENGALURU INTERNATION AIRPORT")) {
+            i++;
+            fromPlace.sendKeys(Keys.ARROW_DOWN);
+            textFromField = (String)js.executeScript(script);
+            System.out.println(textFromField);
+            //fromPlace.sendKeys(Keys.ARROW_DOWN);
+            if(i > 10) {
+                break;
+            }
+        }
+
+        if(i > 10) {
+            System.out.println("Element not found");
+        } else {
+            System.out.println("Element found");
+        }
+
+
+
 
 
 
