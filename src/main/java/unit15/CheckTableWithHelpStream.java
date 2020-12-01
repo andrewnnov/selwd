@@ -33,10 +33,21 @@ public class CheckTableWithHelpStream {
         List<String> listNameSorted = listName.stream().sorted().collect(Collectors.toList());
         Assert.assertTrue(listName.equals(listNameSorted));
 
-        //scan the name column with get text Rice -> price
-        List<String> price = listVegAndFruit.stream().filter(s -> s.getText().contains("Beans")).map(s -> getPriceVeg(s)).collect(Collectors.toList());
-        //price.stream().forEach(s -> System.out.println(s));
-        price.forEach(s -> System.out.println(s));
+        List<String> price;
+
+        do {
+            List<WebElement> rows = driver.findElements(By.xpath("//tbody//tr/td[1]"));
+            //scan the name column with get text Rice -> price
+            price = rows.stream().filter(s -> s.getText().contains("Rice")).map(s -> getPriceVeg(s)).collect(Collectors.toList());
+            //price.stream().forEach(s -> System.out.println(s));
+            price.forEach(s -> System.out.println(s));
+
+            if(price.size() < 1) {
+                driver.findElement(By.xpath("//a[@aria-label='Next']")).click();
+            }
+        } while (price.size() < 1);
+
+
 
     }
 
