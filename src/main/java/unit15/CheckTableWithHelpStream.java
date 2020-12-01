@@ -31,7 +31,18 @@ public class CheckTableWithHelpStream {
 
         //sort in the list з
         List<String> listNameSorted = listName.stream().sorted().collect(Collectors.toList());
-
         Assert.assertTrue(listName.equals(listNameSorted));
+
+        //scan the name column with get text Rice -> price
+        List<String> price = listVegAndFruit.stream().filter(s -> s.getText().contains("Beans")).map(s -> getPriceVeg(s)).collect(Collectors.toList());
+        //price.stream().forEach(s -> System.out.println(s));
+        price.forEach(s -> System.out.println(s));
+
+    }
+
+    private static String getPriceVeg(WebElement s) {
+        String priceValue = s.findElement(By.xpath("following-sibling::td[1]")).getText();
+        return priceValue;
+
     }
 }
