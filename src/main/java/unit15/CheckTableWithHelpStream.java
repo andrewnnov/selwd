@@ -46,14 +46,10 @@ public class CheckTableWithHelpStream {
                 driver.findElement(By.xpath("//a[@aria-label='Next']")).click();
             }
         } while (price.size() < 1);
-
-
-
     }
 
     private static String getPriceVeg(WebElement s) {
         String priceValue = s.findElement(By.xpath("following-sibling::td[1]")).getText();
         return priceValue;
-
     }
 }
