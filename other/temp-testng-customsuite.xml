@@ -10,8 +10,16 @@
 
   <test name="testCasesHome">
     <classes>
-      <class name="testngtutorial.test.Day3"/>
-      <class name="testngtutorial.test.Day4"/>
+      <class name="testngtutorial.test.Day3">
+        <methods>
+          <exclude name="mobileLogin"/>
+        </methods>
+      </class>
+      <class name="testngtutorial.test.Day4">
+        <methods>
+          <include name="loginAPIHome"/>
+        </methods>
+      </class>
     </classes>
   </test> <!-- testselenium -->
 </suite> <!-- Default Suite -->
