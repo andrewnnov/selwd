@@ -1,5 +1,6 @@
 package testngtutorial.test;
 
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 public class Day1 {
@@ -9,7 +10,7 @@ public class Day1 {
         System.out.println("hello");
     }
 
-    @Test
+    @AfterSuite
     public void SecondTest() {
         System.out.println("bye");
     }
