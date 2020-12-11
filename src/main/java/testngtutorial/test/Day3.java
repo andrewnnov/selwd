@@ -17,6 +17,18 @@ public class Day3 {
     }
 
     @Test
+    public void mobileSearch() {
+        //Apium
+        System.out.println("mobileSearch");
+    }
+
+    @Test
+    public void mobileChrome() {
+        //Apium
+        System.out.println("mobileChrome");
+    }
+
+    @Test
     public void loginAPI() {
         //rest API
         System.out.println("API");

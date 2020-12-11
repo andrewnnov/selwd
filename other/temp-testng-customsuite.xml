@@ -12,7 +12,7 @@
     <classes>
       <class name="testngtutorial.test.Day3">
         <methods>
-          <exclude name="mobileLogin"/>
+          <include name="mobile.*"/>
         </methods>
       </class>
       <class name="testngtutorial.test.Day4">
