@@ -12,25 +12,31 @@ public class Day3 {
         System.out.println("web");
     }
 
-    @Test
-    public void mobileLogin() {
+
+    @Test(dataProvider = "getData")
+    public void mobileLogin(String userName, String pass) {
         //Apium
         System.out.println("mobile");
+        System.out.println(userName);
+        System.out.println(pass);
     }
 
+    @Parameters({"URL", "APIKey/userName"})
     @Test
-    public void mobileSearch() {
+    public void mobileSearch(String urlName, String key) {
         //Apium
         System.out.println("mobileSearch");
+        System.out.println(urlName);
+        System.out.println(key);
     }
 
-    @Test
+    @Test(enabled = false)
     public void mobileChrome() {
         //Apium
         System.out.println("mobileChrome");
     }
 
-    @Test
+    @Test(dependsOnMethods = {"mobileLogin"})
     public void loginAPI() {
         //rest API
         System.out.println("API");
@@ -59,6 +65,28 @@ public class Day3 {
     @BeforeMethod
     public void afterMethod() {
         System.out.println("after method before day 3 class");
+    }
+
+    @DataProvider
+    public Object[][] getData() {
+
+        //1st combination username password -good credit history
+        //2nd combination username password -no credit history
+        //3td fraudelent credit history
+        Object[][] data = new Object[3][2];
+        data[0][0] = "firstusername";
+        data[0][1] = "password";
+
+        //2nd set
+        data[1][0] = "secondusername";
+        data[1][1] = "secondpassword";
+
+        //3
+        data[2][0] = "3username";
+        data[2][1] = "3password";
+
+        return data;
+
     }
 
 

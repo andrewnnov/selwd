@@ -1,5 +1,6 @@
 package testngtutorial.test;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class Day4 {
@@ -16,9 +17,11 @@ public class Day4 {
         System.out.println("mobileHome");
     }
 
+    @Parameters({"URL"})
     @Test
-    public void loginAPIHome() {
+    public void loginAPIHome(String urlName) {
         //rest API
         System.out.println("APIHome");
+        System.out.println(urlName);
     }
 }
