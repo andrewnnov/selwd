@@ -1,13 +1,12 @@
 package testngtutorial.test;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class Day3 {
 
-    @Test
+
+
+    @Test(groups = {"Smoke"})
     public void webLogin() {
         //Selenium
         System.out.println("web");
@@ -47,6 +46,11 @@ public class Day3 {
         System.out.println("I am number one last");
     }
 
+    @AfterClass
+    public void afterClass() {
+        System.out.println("After executing all method in the class Day3");
+    }
+
     @BeforeMethod
     public void beforeMethod() {
         System.out.println("before method before day 3 class");
@@ -56,6 +60,8 @@ public class Day3 {
     public void afterMethod() {
         System.out.println("after method before day 3 class");
     }
+
+
 
 
 

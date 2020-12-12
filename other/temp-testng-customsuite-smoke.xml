@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Default Suite">
+  <test name="Regression">
+    <groups>
+      <run>
+        <include name="Smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testngtutorial.test.Day1"/>
+      <class name="testngtutorial.test.Day2"/>
+      <class name="testngtutorial.test.Day3"/>
+      <class name="testngtutorial.test.Day4"/>
+    </classes>
+  </test>
+  <!-- testselenium -->
+</suite> <!-- Default Suite -->
