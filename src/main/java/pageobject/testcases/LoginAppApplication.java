@@ -20,7 +20,8 @@ public class LoginAppApplication {
         Rediffloginpage rd = new Rediffloginpage(driver);
 
         rd.emailId().sendKeys("hello");
-        rd.emailpasswordId().sendKeys("111111");
+        rd.passwordId().sendKeys("111111");
+        rd.submit().click();
 
 
 
